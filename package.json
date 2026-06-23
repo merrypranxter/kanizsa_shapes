@@ -1,0 +1,21 @@
+{
+  "name": "kanizsa_shapes",
+  "version": "0.1.0",
+  "description": "Kanizsa-type illusory contour generator — WebGL2, no frameworks, no build step.",
+  "type": "module",
+  "scripts": {
+    "start": "node server.mjs",
+    "examples:strength": "node examples/support-ratio.mjs",
+    "examples:geometry": "node examples/inducer-placement.mjs"
+  },
+  "keywords": [
+    "kanizsa",
+    "illusory-contours",
+    "webgl2",
+    "glsl",
+    "visual-illusion",
+    "creative-coding"
+  ],
+  "license": "MIT",
+  "private": true
+}
