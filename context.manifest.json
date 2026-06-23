@@ -1,0 +1,23 @@
+{
+  "name": "kanizsa_shapes",
+  "type": "SURFACE",
+  "title": "Kanizsa Shapes \u2014 Illusory Contours",
+  "brief": "Kanizsa-type illusory contours from inducer configurations. Pac-man sectors, intersecting lines, and figure-ground arrangements cause the brain to perceive shapes that are not drawn. Parameterize inducer rotation, gap size, and contrast to modulate illusion strength.",
+  "inputs": [
+    "u_source"
+  ],
+  "outputs": [
+    "generated_mesh"
+  ],
+  "tags": [
+    "generator",
+    "kanizsa-shapes"
+  ],
+  "adjacency": [
+    "glass_patterns",
+    "sacred_geometry",
+    "simultaneous_contrast"
+  ],
+  "status": "built",
+  "batch": "E"
+}

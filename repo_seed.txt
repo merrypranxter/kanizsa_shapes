@@ -1,0 +1,25 @@
+# kanizsa_shapes
+
+> pac-man sectors. missing pieces. the brain draws the triangle that isn't there. kanizsa illusory contours. parameterize the inducers: rotation, gap size, contrast. watch the illusion strengthen and fade.
+
+**Archetype:** SURFACE. **Distinct from** `rotating_snakes` (motion illusion, not contour completion) and `simultaneous_contrast` (color, not form).
+
+## Adjacency
+- `sacred_geometry` — geometric construction, not illusory
+- `glass_patterns` — global form from local cues, similar mechanism
+- `simultaneous_contrast` — color interaction, not contour completion
+
+## Visual Targets
+- Kanizsa triangle: 3 pac-man inducers pointing inward
+- Kanizsa square: 4 inducers, square illusion
+- Subjective surfaces: illusory brightness within the perceived shape
+- Inducer rotation: spinning pac-man sectors
+- Gap size: smaller gap = stronger illusion
+- Contrast: high contrast = stronger illusion
+- Figure-ground: ambiguous vase/faces style arrangements
+
+## Technical Notes
+- Illusory contours: V2 neurons respond to the non-existent edge
+- Subjective brightness: the illusory shape appears brighter than background
+- Local contour completion: brain fills gaps based on good continuation
+- Global shape perception: top-down influence of expected shape
