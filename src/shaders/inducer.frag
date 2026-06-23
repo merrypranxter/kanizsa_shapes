@@ -41,7 +41,7 @@ void main() {
 
   if (u_shapeType == 2) {
     // Subjective disk: radial spokes whose inner ends terminate on the circle.
-    float n = float(u_spokeCount);
+    float n = max(1.0, float(u_spokeCount));
     for (int i = 0; i < MAX_V * 4; i++) {
       if (i >= u_spokeCount) break;
       float a = (float(i) / n) * 2.0 * PI + u_rotation;

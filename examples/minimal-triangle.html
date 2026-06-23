@@ -21,7 +21,10 @@
 <script>
 const canvas = document.getElementById('c');
 const gl = canvas.getContext('webgl2');
-if (!gl) document.body.innerHTML = '<p>WebGL2 not available.</p>';
+if (!gl) {
+  document.body.innerHTML = '<p>WebGL2 not available.</p>';
+  throw new Error('WebGL2 not available');
+}
 
 const VERT = `#version 300 es
 precision highp float;

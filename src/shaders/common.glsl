@@ -23,6 +23,7 @@ float sdSegment(vec2 p, vec2 a, vec2 b) {
 
 // Generic polygon SDF (Inigo Quilez). Negative inside. `v` is wound either way.
 float sdPolygon(vec2 p, vec2 v[MAX_V], int n) {
+  if (n < 3 || n > MAX_V) return 1e5;
   float d = dot(p - v[0], p - v[0]);
   float s = 1.0;
   int j = n - 1;
@@ -48,7 +49,7 @@ float pacmanMask(vec2 p, vec2 c, float facing, float r, float wedge) {
   float dist = length(q);
   float aa = fwidth(dist) * 1.5 + 1e-4;
   float disk = 1.0 - smoothstep(r - aa, r + aa, dist);
-  float ang = atan(q.y, q.x);
+  float ang = (dist < 1e-5) ? 0.0 : atan(q.y, q.x);
   float rel = abs(angDiff(ang, facing));
   float aaA = fwidth(rel) * 1.5 + 1e-3;
   float outsideBite = smoothstep(wedge - aaA, wedge + aaA, rel);

@@ -16,6 +16,10 @@ import { buildShape } from './inducer.js';
 import { illusionStrength, diffusionDecay } from './completion.js';
 
 const canvas = document.getElementById('gl');
+if (!canvas) {
+  showFatal('Canvas element "#gl" not found.');
+  throw new Error('Canvas element not found');
+}
 const gl = canvas.getContext('webgl2', { antialias: false, alpha: false });
 if (!gl) {
   showFatal('WebGL2 is not available in this browser.');
@@ -112,18 +116,19 @@ function frame(t) {
 
   // --- 2. brightness filling-in (ping-pong, persistent) ---
   const decay = diffusionDecay(state);
+  brightProg.use();
+  setShapeUniforms(brightProg);
+  brightProg
+    .float('u_aspect', aspect)
+    .float('u_strength', strength)
+    .float('u_figureGround', state.figureGround)
+    .float('u_decay', decay);
   for (let i = 0; i < DIFFUSION_ITERS; i++) {
     const src = (i % 2 === 0) ? brightA : brightB;
     const dst = (i % 2 === 0) ? brightB : brightA;
     bindTarget(dst);
-    brightProg.use();
-    setShapeUniforms(brightProg);
     brightProg
       .vec2('u_resolution', dst.w, dst.h)
-      .float('u_aspect', aspect)
-      .float('u_strength', strength)
-      .float('u_figureGround', state.figureGround)
-      .float('u_decay', decay)
       .tex('u_prev', 0, src.tex)
       .tex('u_ink', 1, inkTarget.tex);
     quad.draw();
