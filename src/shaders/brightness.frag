@@ -18,7 +18,6 @@ uniform vec2  u_verts[MAX_V];
 uniform int   u_vertCount;
 uniform float u_diskRadius;
 
-uniform float u_strength;       // illusion strength (see completion.js)
 uniform float u_figureGround;   // 0/1 — swap which side is "figure"
 uniform float u_decay;          // diffusion persistence (<1)
 
